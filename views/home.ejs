@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <% data.forEach((item) => { %>
+        <h1>
+            <%= item.name %>
+        </h1>
+        <p>
+            <%= item.content %>
+        </p>
+
+        <% item.comments.forEach((items_com) => { %>
+            <p>
+                <%= items_com.user %>
+            </p>
+            <p>
+                <%= items_com.text %>
+            </p>
+            <% }) %>
+                <img src="<%= item.pic %>" alt="">
+                <form action="/comment/<%= item._id %>" method="post">
+                    <input type="text" name="username">
+                    <textarea name="comment_text" id="" cols="30" rows="10"></textarea>
+                    <button type="submit">Add comment</button>
+                </form>
+                <a href="news/<%= item._id %>">Edit</a>
+
+                <form action="news/<%= item._id %>?_method=delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+
+                <% }) %>
+                    <form action="/news" method="post" enctype="multipart/form-data">
+                        <input type="text" name="dataname">
+                        <textarea id="" cols="30" rows="10" name="datacontent"></textarea>
+                        <input type="file" name="thumbnail">
+                        <input type="submit">
+                    </form>
+
+</body>
+
+</html>

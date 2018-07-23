@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+</head>
+
+<body>
+    <form action="/news/<%= foundData._id %>?_method=put" method="post">
+        <form action="/news" method="post" enctype="multipart/form-data">
+            <input type="text" name="data[name]" value="<%= foundData.name %>">
+            <textarea id="" cols="30" rows="10" name="data[content]"><%= foundData.content %></textarea>
+            <input type="submit">
+        </form>
+    </form>
+</body>
+
+</html>
