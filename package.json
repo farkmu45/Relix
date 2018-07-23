@@ -1,0 +1,29 @@
+{
+  "name": "relix",
+  "version": "1.0.0",
+  "description": "CRUD test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farkmu45/Relix.git"
+  },
+  "keywords": [
+    "CRUD"
+  ],
+  "author": "Fark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farkmu45/Relix/issues"
+  },
+  "homepage": "https://github.com/farkmu45/Relix#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "multer": "^1.3.1",
+    "path": "^0.12.7"
+  }
+}
