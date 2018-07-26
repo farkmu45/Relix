@@ -1,0 +1,41 @@
+.navigation {
+    color: white;
+    font-size: 2rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 1/-1;
+    background-color: black;
+
+    &__container {
+        display: flex;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__link,
+    &__link:link,
+    &__link:active {
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        color: white;
+        text-decoration: none;
+        outline: none;
+        transition: 600ms cubic-bezier(0.23, 1, 0.320, 1);
+        margin: 0 6px;
+        letter-spacing: 1rem;
+    }
+
+    &__link:hover {
+        box-shadow: 0 3px 0 white;
+    } 
+
+    &__link-active {
+            box-shadow: 0 3px 0 white;
+        }
+
+}

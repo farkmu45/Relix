@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] 14rem [col-end]) [center-end] 1fr [full-end];
+
+    &--home {
+        grid-template-rows: 90vh auto 90rem;
+    }
+
+    &--new {
+        grid-template-rows: 100vh;
+    }
+}

@@ -1,0 +1,36 @@
+.jumbo {
+    display: flex;
+    align-items: center;
+
+    &--image {
+        grid-column: 1/2;
+    }
+
+    &--text {
+        grid-column: 2/3;
+        justify-content: space-around;
+        padding-left: 10rem;
+    }
+
+    &__container {
+        width: 100%;
+        height: 70%;
+        background-image: linear-gradient(to top left,rgba($color-primary,.7),rgba( $color-secondary    , .7)), url(../public/img/default.png);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.continue {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.continue__icon {
+    fill: white;
+    display: inline-block;
+    width: 6rem;
+    animation: bounce 1s infinite;
+}

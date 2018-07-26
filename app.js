@@ -34,9 +34,13 @@ app.get('/', (req, res) => {
       if (err) {
         res.send(err);
       } else {
-        res.render('home', { data: data });
+        res.render('index', { data: data });
       }
     });
+});
+
+app.get('/new', (req, res) => {
+  res.render('new');
 });
 
 app.post('/news', upload.single('thumbnail'), (req, res) => {
@@ -61,7 +65,7 @@ app.get('/news/:news_id', (req, res) => {
     if (err) {
       res.send(err);
     } else {
-      res.render('update', { foundData: foundData });
+      res.render('edit', { foundData: foundData });
     }
   });
 });
@@ -101,12 +105,12 @@ app.delete('/news/:news_id', (req, res) => {
   });
 });
 
-app.get('/news?search', (req, res) => {
-  newsData.find({ name: new RegExp(/ req.query.search /i) }, (err, result) => {
+app.get('/s', (req, res) => {
+  newsData.find({ name: new RegExp(req.query.search, 'i')}, (err, result) => {
     if (err) {
       res.send(err);
     } else {
-      res.render('found', { result: result });
+      res.send(result);
     }
   });
 });
@@ -132,6 +136,10 @@ app.post('/comment/:news_id', (req, res) => {
       }
     }
   );
+});
+
+app.get('*', (req, res) => {
+  res.send('Error 404');
 });
 
 app.listen(3000, () => {

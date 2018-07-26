@@ -1,0 +1,36 @@
+.u-margin-left {
+    &-big {
+        margin-left: 8rem
+    }
+
+    &-medium {
+        margin-left: 6rem
+    }
+    &-small {
+        margin-left: 2rem
+    }
+}
+
+.bc {
+    &--white {
+        background-color: white;
+    }
+
+    &--black {
+        background-color: black;
+    }
+}
+
+.color {
+    &--primary {
+        color: $color-primary;
+    }
+
+    &--black {
+        color: black;
+    }
+}
+
+.tr-up {
+    transform: translateY(-5rem);
+}

@@ -1,0 +1,20 @@
+.mascot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10rem 0;
+
+    &__container {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__pad {
+        margin-left: -30px;
+    }
+}

@@ -1,0 +1,73 @@
+.card,
+.card:link,
+.card:active {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgba(black, .4);
+    text-decoration: none;
+    outline: none;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    transition: all 200ms ease-in;
+
+    &__wrapper {
+        width: 100%;
+        height: 40%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__action {
+        width: 100%;
+        height: auto;
+        padding: 3rem 2rem;
+        overflow: hidden;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    &__details {
+        font-size: 1.3rem;
+        color: #666;
+        letter-spacing: .4rem;
+    }
+
+    &__content {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+        color: #333;
+    }
+
+    &--hover {
+            &:hover {
+        transform: translateY(-5px);
+    }
+    }
+
+    &__form {
+        padding: 0 4rem;
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        background-color: white;
+    }
+}
