@@ -103,7 +103,7 @@ html {
   .jumbo__container {
     width: 100%;
     height: 70%;
-    background-image: linear-gradient(to top left, rgba(204, 43, 94, 0.7), rgba(117, 58, 136, 0.7)), url(default.png);
+    background-image: linear-gradient(to top left, rgba(204, 43, 94, 0.7), rgba(117, 58, 136, 0.7)), url(../public/img/default.png);
     background-size: cover;
     background-position: center; }
 
@@ -118,6 +118,16 @@ html {
   display: inline-block;
   width: 6rem;
   animation: bounce 1s infinite; }
+
+.news {
+  display: grid;
+  grid-template-rows: 30rem min-content;
+  grid-template-columns: 70rem;
+  justify-content: center; }
+  .news__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 
 .mascot {
   display: grid;

@@ -8,7 +8,10 @@ const methodOverride = require('method-override');
 const newsData = require('./models/news');
 const commentData = require('./models/comments');
 
-mongoose.connect('mongodb://localhost/relix');
+mongoose.connect(
+  'mongodb://localhost:27017/relix',
+  { useNewUrlParser: true }
+);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -27,20 +30,30 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
+  newsData.find({}, (err, data) => {
+    if (err) {
+      res.send('Error 404');
+    } else {
+      res.render('index', { data: data });
+    }
+  });
+});
+
+app.get('/new', (req, res) => {
+  res.render('new');
+});
+
+app.get('/news/:id', (req, res) => {
   newsData
-    .find({})
+    .findById(req.params.id)
     .populate('comments')
     .exec((err, data) => {
       if (err) {
         res.send(err);
       } else {
-        res.render('index', { data: data });
+        res.render('news', { foundNews: data });
       }
     });
-});
-
-app.get('/new', (req, res) => {
-  res.render('new');
 });
 
 app.post('/news', upload.single('thumbnail'), (req, res) => {
@@ -60,7 +73,7 @@ app.post('/news', upload.single('thumbnail'), (req, res) => {
   );
 });
 
-app.get('/news/:news_id', (req, res) => {
+app.get('/news/:news_id/edit', (req, res) => {
   newsData.findById(req.params.news_id, (err, foundData) => {
     if (err) {
       res.send(err);
@@ -106,7 +119,7 @@ app.delete('/news/:news_id', (req, res) => {
 });
 
 app.get('/s', (req, res) => {
-  newsData.find({ name: new RegExp(req.query.search, 'i')}, (err, result) => {
+  newsData.find({ name: new RegExp(req.query.search, 'i') }, (err, result) => {
     if (err) {
       res.send(err);
     } else {
@@ -129,7 +142,7 @@ app.post('/comment/:news_id', (req, res) => {
             if (err) {
               console.log(err);
             } else {
-              res.redirect('/');
+              res.redirect(`/news/${req.params.news_id}`);
             }
           }
         );

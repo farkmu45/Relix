@@ -1,0 +1,12 @@
+.news {
+    display: grid;
+    grid-template-rows: 30rem min-content;
+    grid-template-columns: 70rem;
+    justify-content: center;
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

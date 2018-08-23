@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="container container--new">
+    <header class="new">
+        <nav class="navigation">
+            <ul class="navigation__container">
+                <li class="navigation__item">
+                    <a href="/" class="navigation__link">Home</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="/" class="navigation__link navigation__link-active">News</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="/" class="navigation__link">About</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="news">
+            <div class="card tr-up">
+
+                <img src="<%= foundNews.pic %>" alt="" srcset="" class="news__pic">
+            </div>
+            <div class="card news__article">
+                <div class="news__container news__container--content">
+                    <h1 class="heading heading--2">
+                        <%=  foundNews.name %>
+                    </h1>
+                    <p class="news__content">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla quasi, placeat saepe eaque commodi eius earum beatae aliquam
+                        quibusdam ad quidem rem ex sapiente. Corrupti voluptatum architecto dolores recusandae cumque.
+                    </p>
+                </div>
+                <div class="news__container news__container--comments">
+                    <% foundNews.comments.forEach((item) => { %>
+                        <div class="news__comments">
+
+                            <h5 class="news__user">
+                                <%= item.user %>
+                            </h5>
+                            <p class="news__text">
+                                <%= item.text %>
+                            </p>
+                        </div>
+                        <% }) %>
+                </div>
+                <div class="card__form">
+                    <form action="/comment/<%= foundNews._id %>" class="form" method="post">
+                        <div class="form__group">
+                            <p class="form__text">
+                                Name
+                            </p>
+                            <input type="text" class="form__input" name="username">
+                        </div>
+                        <div class="form__group">
+                            <p class="form__text">
+                                Comment
+                            </p>
+                            <textarea class="form__textarea" cols="25" rows="4" name="comment_text"></textarea>
+                            <button type="submit" class="form__submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <style>
+        .news {
+            display: grid;
+            grid-template-columns: 70rem;
+            justify-content: center;
+            background-color: white;
+            grid-template-rows: 40rem min-content;
+        }
+
+        .news__container {
+            padding: 2rem 3rem;
+        }
+
+        .news__container--comments {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .news__container--content {
+            border-bottom: 2px #eee solid;
+        }
+
+        .news__pic {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .news__article {}
+
+        .news__content {
+            margin-top: 2rem;
+            color: #666;
+            font-size: 1.6rem;
+        }
+
+        .news__comments {
+            background-color: #eee;
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+        }
+
+        .news__comments:not(:last-child) {
+            margin-bottom: 4rem;
+        }
+
+        .news__user {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .news__text {
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</body>
+
+</html>

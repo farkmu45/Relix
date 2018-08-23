@@ -77,10 +77,11 @@
                     <form action="news/<%= item._id %>?_method=delete" method="post">
                         <button type="submit" class="form__submit">Delete</button>
                     </form>
-                    <a href="news/<%= item._id %>" style="display: inline-block">Edit</a>
+                    <a href="news/<%= item._id %>/edit" style="display: inline-block">Edit</a>
+                    <a href="news/<%= item._id %>" style="display: inline-block">More</a>
                 </div>
             </div>
-            <form action="comment/" method="post"></form>
+            <!-- <form action="comment/" method="post"></form> -->
             <% })%>
     </div>
 </body>
